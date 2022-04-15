@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "no-reply@auth_app.com"
+  default from: "ahart.dev.practice@gmail.com"
   layout "mailer"
 end
