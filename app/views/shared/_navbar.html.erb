@@ -1,35 +1,34 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand fw-bold" href="/">Auth App</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <%= link_to 'Home', root_path, class:"nav-link #{"active" if request.path == root_path}" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <%= link_to 'About', about_path, class:"nav-link #{"active" if request.path == about_path}" %>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown me-3">
+          <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Username
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><%= link_to 'Change Password', '#', class:"dropdown-item" %></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><%= link_to 'Delete Account', '#', data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"dropdown-item text-danger" %></li>
+          </ul>
+        </li>
         <li class="nav-item">
-          <%= link_to 'text', '#', class:"btn btn-primary" %>
+          <%= link_to 'Login', '#', class:"btn btn-primary me-3" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sign Up', '#', class:"btn btn-success" %>
         </li>
       </ul>
     </div>
