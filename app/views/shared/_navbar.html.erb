@@ -14,22 +14,28 @@
         </li>
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <% if Current.user %>
         <li class="nav-item dropdown me-3">
           <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <%= User.find_by(id: session[:user_id]).email if session[:user_id] %>
+            <%= Current.user.email %>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><%= link_to 'Change Password', '#', class:"dropdown-item" %></li>
+            <li><%= link_to 'Change Password', edit_password_path, class:"dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
             <li><%= link_to 'Delete Account', registration_destroy_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"dropdown-item text-danger" %></li>
           </ul>
         </li>
         <li class="nav-item">
-          <%= link_to 'Login', '#', class:"btn btn-primary me-3" %>
+          <%= link_to 'Logout', logout_path, data: { turbo_method: :delete }, class:"btn btn-primary" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Login', login_path, class:"btn btn-primary me-3" if request.path != login_path %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Sign Up', sign_up_path, class:"btn btn-success" %>
+          <%= link_to 'Sign Up', sign_up_path, class:"btn btn-success" if request.path != sign_up_path %>
         </li>
+      <% end%>
       </ul>
     </div>
   </div>

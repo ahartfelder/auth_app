@@ -1,0 +1,12 @@
+<h1>Forgot your password?</h1>
+
+<%= form_with url: passwords_reset_path do |form| %>
+  <div class="mb-3">
+    <%= form.label :email, class:"form-label" %>
+    <%= form.email_field :email, class:"form-control shadow" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit 'Reset password', class:"btn btn-primary shadow" %>
+  </div>
+<% end %>

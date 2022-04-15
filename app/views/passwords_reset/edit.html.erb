@@ -1,20 +1,15 @@
-<h1>Sign Up</h1>
+<h1>Password Reset</h1>
 
-<%= form_with model: @user, url: sign_up_path do |form| %>
+<%= form_with model: @user, url: passwords_reset_edit_path(token: params[:token]) do |form| %>
   <% if form.object.errors.any? %>
     <div class="alert alert-warning" role="alert">
-      <ul>
-      <% form.object.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>  
-      <% end %>
+      <ul class="mb-0">
+        <% form.object.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>  
+        <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="mb-3">
-    <%= form.label :email, class:"form-label" %>
-    <%= form.email_field :email, class:"form-control shadow" %>
-  </div>
 
   <div class="mb-3">
     <%= form.label :password, class:"form-label" %>
@@ -27,6 +22,6 @@
   </div>
 
   <div class="mb-3">
-    <%= form.submit 'Sign Up', class:"btn btn-primary shadow" %>
+    <%= form.submit 'Reset password', class:"btn btn-primary shadow" %>
   </div>
 <% end %>

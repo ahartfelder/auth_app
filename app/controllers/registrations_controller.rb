@@ -14,7 +14,9 @@ class RegistrationsController < ApplicationController
   end
 
   def destroy
-    
+    Current.user.destroy
+    session[:user_id] = nil
+    redirect_to root_path, notice: "Your account was permanently deleted."
   end
 
   private
