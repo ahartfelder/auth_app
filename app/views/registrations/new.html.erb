@@ -3,7 +3,7 @@
 <%= form_with model: @user, url: sign_up_path do |form| %>
   <% if form.object.errors.any? %>
     <div class="alert alert-warning" role="alert">
-      <ul>
+      <ul class="mb-0">
       <% form.object.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>  
       <% end %>
