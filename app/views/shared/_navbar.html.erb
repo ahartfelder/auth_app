@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
   <div class="container">
     <a class="navbar-brand fw-bold" href="/">Auth App</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,19 +16,19 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown me-3">
           <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Username
+            <%= User.find_by(id: session[:user_id]).email if session[:user_id] %>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><%= link_to 'Change Password', '#', class:"dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
-            <li><%= link_to 'Delete Account', '#', data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"dropdown-item text-danger" %></li>
+            <li><%= link_to 'Delete Account', registration_destroy_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"dropdown-item text-danger" %></li>
           </ul>
         </li>
         <li class="nav-item">
           <%= link_to 'Login', '#', class:"btn btn-primary me-3" %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Sign Up', '#', class:"btn btn-success" %>
+          <%= link_to 'Sign Up', sign_up_path, class:"btn btn-success" %>
         </li>
       </ul>
     </div>
