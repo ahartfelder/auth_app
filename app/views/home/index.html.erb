@@ -3,5 +3,5 @@
   <hr>
   <p>Explore this authentication system and enjoy!</p>
 
-  <div><%= link_to 'Sign Up Now!', '#', class:"btn btn-primary btn-lg m-3" %></div>
+  <div><%= link_to 'Sign Up Now!', sign_up_path, class:"btn btn-primary btn-lg m-3" unless Current.user %></div>
 </div>
