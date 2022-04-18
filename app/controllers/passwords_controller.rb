@@ -6,9 +6,14 @@ class PasswordsController < ApplicationController
 
   def update
     @user = Current.user
-    if @user.update(password_params)
-      redirect_to root_path, notice: "Password updated."
+    if @user.authenticate(params[:user][:current_password])
+      if @user.update(password_params)
+        redirect_to root_path, notice: "Password updated."
+      else
+        render :edit, status: :unprocessable_entity
+      end
     else
+      flash.now[:alert] = "Invalid password."
       render :edit, status: :unprocessable_entity
     end
   end

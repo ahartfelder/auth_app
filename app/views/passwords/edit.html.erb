@@ -2,6 +2,7 @@
 
 <%= form_with model: Current.user, url: password_path do |form| %>
   <% if form.object.errors.any? %>
+    <p>New Password errors:</p>
     <div class="alert alert-warning" role="alert">
       <ul class="mb-0">
         <% form.object.errors.full_messages.each do |msg| %>
@@ -10,6 +11,11 @@
       </ul>
     </div>
   <% end %>
+
+  <div class="mb-3">
+    <%= form.label :current_password, class:"form-label" %>
+    <%= form.password_field :current_password, class:"form-control shadow" %>
+  </div>
 
   <div class="mb-3">
     <%= form.label :password, class:"form-label" %>

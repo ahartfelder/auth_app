@@ -6,8 +6,8 @@ class RegistrationsController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to root_path, notice: "Welcome to Authentication App, #{@user.email}!"
+      RegistrationMailer.with(user: @user).confirmation.deliver_later
+      redirect_to root_path, notice: "Check your email to continue."
     else
       render :new, status: :unprocessable_entity
     end

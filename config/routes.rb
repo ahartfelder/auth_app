@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  get 'password_reset/new'
-  get 'password_reset/edit'
   root 'home#index'
   get 'about', to: 'home#about'
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
+  get 'confirmation', to: 'sessions#confirmation'
   delete 'logout', to: 'sessions#destroy'
 
   get 'passwords/reset', to: 'passwords_reset#new'
