@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       if user.confirmed?
         session[:user_id] = user.id
         redirect_to root_path, notice: "Logged in."
-      elsif !(user.created_at + 15.minutes < Time.now)
+      elsif user.created_at + 15.minutes < Time.now
         RegistrationMailer.with(user: user).confirmation.deliver_later
         redirect_to login_path, notice: "A new token has been sent to your email."
       else
