@@ -1,24 +1,48 @@
-# README
+# Authentication App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a demonstration on how authentication system works.
 
-Things you may want to cover:
+I have used Ruby on Rails with Bootstrap 5 to build up the webpages.
 
-* Ruby version
+## Usage:
 
-* System dependencies
+Click on the link [Authentication App](https://auth-app-ahart.herokuapp.com/) to access the Website.
 
-* Configuration
+### Sign Up
+1. Click on `Sign Up` or `Sign Up Now!`.
+3. Fill up your e-mail and password correctly, then click on `Sign up`.
+4. Check your e-mail inbox and follow instructions.
+- After you click the link, you're going to be redirected to the website's login page.
 
-* Database creation
+### Login
+1. Click on `Login`.
+2. Fill up with your e-mail and password, then click on `Login`.
 
-* Database initialization
+### Forgot your Password?
+1. Click on `Login`.
+2. Click on `Forgot your Password?`
+3. Fill up your e-mail.
 
-* How to run the test suite
+### Change Password
+1. Click on your email on the top-right side of your viewport and select
+`Change Password`.
+2. Fill up all fields and click on `Update password`.
 
-* Services (job queues, cache servers, search engines, etc.)
+### Logout
+1. Click on `Logout` on the top-right side of your viewport.
 
-* Deployment instructions
+### Delete Account
+1. Click on your email on the top-right side of your viewport and select
+`Delete Account`.
+2. You're going to be prompted with an `Are you sure?` message.
+3. Click on `OK`.
 
-* ...
+## Nice to Know
+
+- Validations are held and you're going to be alerted.
+- You must confirm your e-mail to be able to log in.
+- Both `sign in` and `forgot your password?` e-mails lasts for 15 minutes.
+
+**I hope you enjoyed my Authentication App.** 
+This was my beginning with Web Development.
+**Thank you for visiting!!!**
